@@ -10,6 +10,7 @@ import { ethers } from 'ethers'
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Moralis from "moralis"
 
+import NavBar from '../../src/navbar'
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(REACT_APP_ALCHEMY_KEY); 
@@ -234,14 +235,24 @@ export default function Home() {
   const getETHPricePrediction = async () => {
     if (currentAccount != "") {
 			// console.log("getting BORROW  ----- nfts 0")
-			const tokenIds = await nftDAOContract.methods.getPricePrediction(1).call() // returns array
-      console.log(tokenIds)
+			const vmap = {}
+			const mintcount = await nftDAOContract.methods.getMintCount().call() // returns array
+			for (var i =0; i < mintcount; i++) {
+				vmap[i] = await nftDAOContract.methods.getPricePrediction(i).call()
+			}
+
+
+	// 		const tokenIds = await nftDAOContract.methods.getPricePrediction(1).call() // returns array
+    //   console.log(tokenIds)
 
 		}
   }
 
 
   return (
+	<div>
+	<NavBar/>
+
     <Grid container item xs={12}>
 				<Grid container item xs={3} justifyContent="center">
 				</Grid>
@@ -260,41 +271,61 @@ export default function Home() {
 							Connect Wallet
 						</Button>
 					) : correctNetwork ? (
-            <div>
-              {/* <OutlinedInput type="number"  defaultValue="0" placeholder="ETH Price Prediction"> */}
-            <TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
-						{/* </OutlinedInput> */}
-            <Button
+						<div>
+						<Grid container item xs={12} justify="center">
+						   <TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
+						</Grid>
+
+						<Grid container item xs={12} justify="center">
+						 <Button
 							variant="outlined" disableElevation
-							style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
+							style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "40px", maxWidth: "200px" }}
 							aria-label="View Code"
 							onClick={mintDAONFT}
 							// disabled={(nftList.length >= 2 || numMinted == 50)}
 						>
 							Mint NFTs
 						</Button>
+						</Grid>
+						</div>
 
-            <Button
-							variant="outlined" disableElevation
-							style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-							aria-label="View Code"
-							onClick={getDAONFTMoralis}
-							// disabled={(nftList.length >= 2 || numMinted == 50)}
-						>
-							Get DAO NFT MOralis
-						</Button>
 
-            <Button
-							variant="outlined" disableElevation
-							style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-							aria-label="View Code"
-							onClick={getETHPricePrediction}
-							// disabled={(nftList.length >= 2 || numMinted == 50)}
-						>
-							Get ETH Price Prediction
-						</Button>
 
-            </div>
+            // <div>
+            //   {/* <OutlinedInput type="number"  defaultValue="0" placeholder="ETH Price Prediction"> */}
+            // <TextField id="outlined-basic" type="number" label="ETH Price Prediction" variant="outlined" style={{marginTop: "50px" }} onChange={handleInputChange}/>
+			// 			{/* </OutlinedInput> */}
+            // <Button
+			// 				variant="outlined" disableElevation
+			// 				style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
+			// 				aria-label="View Code"
+			// 				onClick={mintDAONFT}
+			// 				// disabled={(nftList.length >= 2 || numMinted == 50)}
+			// 			>
+			// 				Mint NFTs
+			// 			</Button>
+
+            // <Button
+			// 				variant="outlined" disableElevation
+			// 				style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
+			// 				aria-label="View Code"
+			// 				onClick={getDAONFTMoralis}
+			// 				// disabled={(nftList.length >= 2 || numMinted == 50)}
+			// 			>
+			// 				Get DAO NFT MOralis
+			// 			</Button>
+
+            // <Button
+			// 				variant="outlined" disableElevation
+			// 				style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
+			// 				aria-label="View Code"
+			// 				onClick={getETHPricePrediction}
+			// 				// disabled={(nftList.length >= 2 || numMinted == 50)}
+			// 			>
+			// 				Get ETH Price Prediction
+			// 			</Button>
+
+            // </div>
 					) : (
 						<Paper elevation={0}
 						style={{width: "100%", margin: "2px", marginTop: "80px", maxWidth: "250px", textAlign: "center"}}
@@ -309,5 +340,6 @@ export default function Home() {
 				<Grid container item xs={3} justifyContent="center">
 				</Grid>
 			</Grid>
+			</div>
   )
 }

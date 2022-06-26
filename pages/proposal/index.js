@@ -388,133 +388,117 @@ const handleInputChangeDescription = async (e) => {
                 ) : correctNetwork ? (
                     <div>
                     <Grid container item xs={12} justify="center">
-                     <Button
-                        variant="outlined" disableElevation
-                        style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "50px", maxWidth: "200px" }}
-                        aria-label="View Code"
-                        onClick={joinDAO}
-                        // disabled={(nftList.length >= 2 || numMinted == 50)}
-                    >
-                       Join DAO
-                    </Button>
-                        </Grid>
+                         <TextField
+                            placeholder="Dao Proposal description goes here"
+                            multiline
+                            rows={2}
+                            maxRows={4}
+                            onChange={handleInputChangeDescription}
+                            />
+                    </Grid>
 
                     <Grid container item xs={12} justify="center">
 
-                         <Button
+                    <Grid container item xs={4} justify="center">
+                    <TextField id="outlined-basic" type="text" label="Choice 1" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice1}/>
+
+</Grid>
+<Grid container item xs={4} justify="center">
+<TextField id="outlined-basic" type="text" label="Choice 2" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice2}/>
+</Grid>
+<Grid container item xs={4} justify="center">
+<TextField id="outlined-basic" type="text" label="Choice 3" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice3}/>
+
+</Grid>
+
+                         
+                        </Grid>
+
+
+
+                    <Grid container item xs={12} justify="center">  
+ <Button
                             variant="outlined" disableElevation
                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
                             aria-label="View Code"
-                            onClick={getDAOMembers}
+                            onClick={createProposal}
                             // disabled={(nftList.length >= 2 || numMinted == 50)}
                             >
-                            Get DAO Members
+                            Create Proposal
                         </Button>
-                        
+</Grid>
+
+
+<Grid container item xs={12} justify="center">
+
+
+                         <Button
+                            variant="outlined" disableElevation
+                            style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "60px", maxWidth: "200px" }}
+                            aria-label="View Code"
+                            onClick={getProposal}
+                            // disabled={(nftList.length >= 2 || numMinted == 50)}
+                            >
+                            Get Proposal
+                        </Button> 
+</Grid>
+
+
+<Grid container item xs={12} justify="center">
+                            <div>
+                                {proposal != "" ? (
+                                    <Grid container item xs={12} justify="center">
+
+<Grid container item xs={12} justify="center">
+{proposal.description}
+</Grid>
+
+<Grid container item xs={12} justify="center">
+<Button
+    variant="outlined" disableElevation
+    style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "400px" }}
+    aria-label="View Code"
+    onClick={selectedChoice1}
+    // disabled={(nftList.length >= 2 || numMinted == 50)}
+    >
+    Choice 1: {proposal.choice1}
+</Button>
+</Grid>
+
+<Grid container item xs={12} justify="center">
+    
+<Button
+    variant="outlined" disableElevation
+    style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "400px" }}
+    aria-label="View Code"
+    onClick={selectedChoice2}
+    // disabled={(nftList.length >= 2 || numMinted == 50)}
+    >
+    Choice 2: {proposal.choice2}
+</Button>
+</Grid>
+
+<Grid container item xs={12} justify="center">
+<Button
+    variant="outlined" disableElevation
+    style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "400px" }}
+    aria-label="View Code"
+    onClick={selectedChoice3}
+    // disabled={(nftList.length >= 2 || numMinted == 50)}
+    >
+    Choice 3: {proposal.choice3}
+</Button>
+</Grid>
+                                        
+                                    </Grid>
+                                ) : (
+                                    <div></div>
+                                )}
+                            </div>
                         </Grid>
                         </div>
 
-//                     <div>
-        
-//         <Button
-//                         variant="outlined" disableElevation
-//                         style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "50px", maxWidth: "200px" }}
-//                         aria-label="View Code"
-//                         onClick={joinDAO}
-//                         // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                     >
-//                        Join DAO
-//                     </Button>
 
-//                         <Button
-//                             variant="outlined" disableElevation
-//                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                             aria-label="View Code"
-//                             onClick={getDAOMembers}
-//                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                             >
-//                             Get DAO Members
-//                         </Button>
-
-
-//                         <TextField
-//                             placeholder="Dao Proposal description goes here"
-//                             multiline
-//                             rows={2}
-//                             maxRows={4}
-//                             onChange={handleInputChangeDescription}
-//                             />
-
-// <TextField id="outlined-basic" type="text" label="Choice 1" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice1}/>
-// <TextField id="outlined-basic" type="text" label="Choice 2" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice2}/>
-// <TextField id="outlined-basic" type="text" label="Choice 3" variant="outlined" style={{marginTop: "20px" }} onChange={handleInputChangeChoice3}/>
-
-
-// <Button
-//                             variant="outlined" disableElevation
-//                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                             aria-label="View Code"
-//                             onClick={createProposal}
-//                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                             >
-//                             Create Proposal
-//                         </Button>
-
-
-
-//                         <Button
-//                             variant="outlined" disableElevation
-//                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                             aria-label="View Code"
-//                             onClick={getProposal}
-//                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                             >
-//                             Get Proposal
-//                         </Button>
-
-
-//                         <Grid container item xs={6} justify="center">
-//                             <div>
-//                                 {proposal != "" ? (
-//                                     <div >
-//                                         {console.log(proposal)}
-//                                         <div>{proposal.description}</div>
-//                                         <Button
-//                                             variant="outlined" disableElevation
-//                                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                                             aria-label="View Code"
-//                                             onClick={selectedChoice1}
-//                                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                                             >
-//                                             Choice 1: {proposal.choice1}
-//                                         </Button>
-
-//                                         <Button
-//                                             variant="outlined" disableElevation
-//                                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                                             aria-label="View Code"
-//                                             onClick={selectedChoice2}
-//                                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                                             >
-//                                             Choice 2: {proposal.choice2}
-//                                         </Button>
-
-//                                         <Button
-//                                             variant="outlined" disableElevation
-//                                             style={{ border: '2px solid', height: "50px", width: "100%", margin: "2px", marginTop: "10px", maxWidth: "200px" }}
-//                                             aria-label="View Code"
-//                                             onClick={selectedChoice3}
-//                                             // disabled={(nftList.length >= 2 || numMinted == 50)}
-//                                             >
-//                                             Choice 3: {proposal.choice3}
-//                                         </Button>
-//                                     </div>
-//                                 ) : (
-//                                     <div></div>
-//                                 )}
-//                             </div>
-//                         </Grid>
-// </div>
                 ) : (
                     <Paper elevation={0}
                     style={{width: "100%", margin: "2px", marginTop: "80px", maxWidth: "250px", textAlign: "center"}}

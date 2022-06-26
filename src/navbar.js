@@ -29,29 +29,29 @@ export default function NavBar() {
                 <Grid container item xs={6} style={{padding: "15px"}}>
                         <Grid container item xs={3} justifyContent="flex-start">
                             <Link href={'/'} passHref>
-                                <Button component="a" color="secondary" className={classes.menuButtons}>
+                                <Button component="a" color="primary" className={classes.menuButtons}>
                                     ETHGlobalDAO
                                 </Button>
                             </Link>
                         </Grid>
                         <Grid container item xs={3} justifyContent="flex-end">
                             <Link href={'/nft'} passHref>
-                                <Button component="a" color="secondary" className={classes.menuButtons}>
+                                <Button component="a" color="primary" className={classes.menuButtons}>
                                     Mint
                                 </Button>
                             </Link>
                         </Grid>
                         <Grid container item xs={3} justifyContent="flex-end">
                             <Link href={'/dao'} passHref>
-                                <Button component="a" color="secondary" className={classes.menuButtons}>
+                                <Button component="a" color="primary" className={classes.menuButtons}>
                                     DAO
                                 </Button>
                             </Link>
                         </Grid>
                         <Grid container item xs={3} justifyContent="flex-end">
-                            <Link href={'/stake'} passHref>
-                                <Button component="a" color="secondary" className={classes.menuButtons}>
-                                    Proposals
+                            <Link href={'/proposal'} passHref>
+                                <Button component="a" color="primary" className={classes.menuButtons}>
+                                Proposals
                                 </Button>
                             </Link>
                         </Grid>
