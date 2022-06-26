@@ -13,7 +13,17 @@
     "ethers": "^5.6.9",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "@alch/alchemy-web3": "^1.4.4",
+    "axios": "^0.27.2",
+    "base-path-converter": "^1.0.2",
+    "dotenv": "^16.0.1",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "memfs": "^3.4.7",
+    "moralis": "^1.8.0",
+    "recursive-fs": "^2.1.0",
+    "web3": "^1.7.4"
   },
   "devDependencies": {
     "eslint": "8.18.0",
